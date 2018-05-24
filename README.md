@@ -2,6 +2,7 @@
 A data-driven simulation language for the design of genetic-mapping experiments and breeding strategies
 
 ## Installation:
+0. run R 
 1. if simcross is not installed, we suggest to install it in advance
     
         devtools::install_github("kbroman/simcross")
@@ -19,28 +20,30 @@ The publication will be published soon
 
 ## Implementation:
 
-1. The manual is available at Wiki page.
+### 1. The manual is available at Wiki page.
 
-2. for simple example running:
+### 2. for simple example running:
   
           script_file = "crossword_script_input_file.script"
           script_file = paste0(system.file("extdata",package="crossword"),"/",script_file)
           run_pipeline(script_file)
   
-4. for running using GUI:
+### 3. for running using GUI:
             
             crossword_gui()
-
-5. for running using Rscript:
-  
-          Rscript ./crossword.R tutoria
-          Rscript ./crossword.R Rscript ./crossword.R crossword_script_input_file.script  
-*note: auxiliary functinos can run through Rscript by pathing function name then the function's arguments in their order.
-
-5. for batch running:
+            
+### 4. for running multiple simulations:
 
           script_file2 = "test2.script"
           script_file2 = paste0(system.file("extdata",package="crossword"),"/",script_file2)
           list2 = "list2"
           list2 = paste0(system.file("extdata",package="crossword"),"/",list2)
           run_batch(script_file2,list2,run=TRUE)
+
+### 5. for running using Rscript (outside R):
+.*note: you have to exit R, and copy crossword.R and the script file from the installed library to the local location.
+          
+          Rscript ./crossword.R tutorial
+          Rscript ./crossword.R Rscript ./crossword.R crossword_script_input_file.script
+*note: auxiliary functions can run through Rscript by passing function name then the function's arguments in their order.
+*note: for implementing more arguments, add more lines to list2, with the argument names and values. Then, edit the argument names in the script file.
