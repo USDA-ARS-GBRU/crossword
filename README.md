@@ -25,14 +25,6 @@ Implementation:
           script_file = "crossword_script_input_file.script"
           script_file = paste0(system.file("extdata",package="crossword"),"/",script_file)
           run_pipeline(script_file)
-
-3. for batch running:
-
-          script_file2 = "test2.script"
-          script_file2 = paste0(system.file("extdata",package="crossword"),"/",script_file2)
-          list2 = "list2"
-          list2 = paste0(system.file("extdata",package="crossword"),"/",list2)
-          run_batch(script_file2,list2,run=TRUE)
   
 4. for running using GUI:
             
@@ -41,6 +33,13 @@ Implementation:
 5. for running using Rscript:
   
           Rscript ./crossword.R tutoria
-          Rscript ./crossword.R Rscript ./crossword.R crossword_script_input_file.script
-  
+          Rscript ./crossword.R Rscript ./crossword.R crossword_script_input_file.script  
 *note: auxiliary functinos can run through Rscript by pathing function name then the function's arguments in their order.
+
+5. for batch running:
+
+          script_file2 = "test2.script"
+          script_file2 = paste0(system.file("extdata",package="crossword"),"/",script_file2)
+          list2 = "list2"
+          list2 = paste0(system.file("extdata",package="crossword"),"/",list2)
+          run_batch(script_file2,list2,run=TRUE)
