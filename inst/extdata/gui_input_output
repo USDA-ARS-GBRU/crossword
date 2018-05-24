@@ -1,0 +1,44 @@
+haplotypes_in:
+	Description: imports a population from an input file.
+	Output_variable_type: population
+	Parameters:
+input: the input population file, the output as produced by haplotype_out.
+	Example: pop5 = haplotypes_in(input = "haplo1_out")
+
+haplotypes_out:
+	Description: exports a population to an output file. This is useful for stopping a simulation and restarting it, if needed.
+	Output_variable_type: NA
+	Parameters:
+		pop: the name of the population to be exported.
+		output: the output file will be exported to directory supplied in header and named with the value given
+	Example: haplotypes_out(pop = pop2,output = "haplo1_out")
+
+draw_haplotypes:
+	Description: creates a graph of each chromosome based on parental contributions. The graph will be exported to directory supplied in header.
+	Output_variable_type: NA
+	Parameters:
+		haplotypes: the population to be drawn.
+	Example: draw_haplotypes(haplotypes=pop2)
+
+draw_population:
+	Description: creates a pie graph of each individual based on parental contributions. See header for additional parameters controlling output.
+	Output_variable_type: NA
+	Parameters:
+		pop: the population to be drawn.
+	Example: draw_population(pop = pop3)
+
+phenotype_out:
+	Description: exports phenotypes to an output file. See header for additional parameters controlling output.
+	Output_variable_type: NA
+	Parameters:
+		pheno: the phenotypes variable to be exported.
+		file: output file.
+	Example: phenotype_out(pheno = pheno3, file = "pheno3_predicted")
+
+genotype_out:
+	Description: exports a genotype to an output file in a hapmap format.
+	Output_variable_type: NA
+	Parameters:
+		genotypes: the genotypes variable to be exported.
+		output: an output file.
+	Example: genotypes_out(genotypes=ms3,output="pop4_marker_set")

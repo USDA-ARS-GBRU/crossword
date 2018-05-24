@@ -1,0 +1,55 @@
+### input/output
+	**output_folder** : output folder for all figures and files relative the working directory. *output_folder = "crossword_output_01"*
+
+	**Iterations** : number of iterations.  Each iteration will produce a separate subdirectory in the output folder named for the iteration number.  For every iteration the QTN are reselected based on the paramters given below unless a QTN file is supplied. *Iterations = 2*
+
+	**input_folder** : input folder containing all files that will be used as an input, such as ‘chr_siz.txt’ below.  The ‘system.file()’ function should be replaced when not using the example test data.  If input data is spread across directories, a common directory can be specified and paths relative to that directory can be defined on a per file basis. *input_folder=system.file("extdata",package="crossword")*
+
+	**im_type** : the format of output images; the following can be used: svg (default), pdf, jpeg, png, tiff, bmp.  PNG is generally the best choice for Windows. *im_type="svg"*
+
+	**by_chromosomes** : for graphing haplotypes, if TRUE, the graphs will be sorted by chromosomes, if FALSE, they will be sorted by individual. *by_chromosomes = TRUE*
+
+	**heterozygous** : for graphing haplotypes, if TRUE, the two sister chromosomes will have different colors.  This is applicable when crossing highly heterozygous parents. *heterozygous = FALSE*
+
+### chromosome information
+	**gff** : a gene annotation GFF file generally acquired from phytozome.org or a comparable data repository. *gff = "peanut.gff"*
+
+	**chr_stat** : a file containing the chromosomes lengths in bp.  If not specified (‘NA’), this file is derived from GFF file using last gene on each chromosome.  If no GFF file, each chromosome gets a length of 100 Mb. See default example file. *chr_stat = "chr_siz.txt"*
+
+	**chr_length** : a file containing the chromosomes length in cm.  If not specified (‘NA’), all chromosomes get length of 100 cM. See default example file. *chr_length = "chr_len.txt"*
+
+	**window_size** : Sliding window sizes in bp for defining variable recombination frequencies.  *window_size = 100000*
+
+### founder genotypes
+	**input** : the file containing parental genotypes.  It may be VCF or HAPMAP formats (ex: "parental_genotypes.hapmap" ).  Names of accessions in this file MUST match those used as founders or parents in the parameter arguments used below. *input = "peanut.vcf"*
+
+	**outcross** : the frequency of outcrossing ("0" for full selfing, "1" for obligate outcrossing). *outcross=0.1 [only used if Clevel is >0 in "advance" function]*
+
+	**input_loci** : the file containing the loci information in CM, if provided (ex: "parental_genotypes.loc"), it will be used instead of gff. *input_loci = NA*
+
+	**homo** : If TRUE, only homozygous loci will be kept for parental genotypes.  Since heterozygous calls in a highly selfing crop are generally miscalls, this value can be set to ignore those.  If using known heterozygous parents, this value should be set to FALSE. *homo = TRUE*
+
+### phenotyping
+	**phenotyping_method** : can be "QTN_random", "high_low_parents" or "QTN_supplied". 1) "QTN_random" - QTN are selected at random and alleles are assigned effects at random.  (These can still be set to be biased toward genic regions, see below.) 2) "high_low_parents" - QTN are selected at random positions but allelic effects are assigned such that high parent alleles are always positive and low parent negative.  Only loci polymorphic between the parents can be used.  3) "QTN_supplied" - a file must be given containing QTN information. See "qtn_effects.efc" for example.  Note, VCF and supplied file must corroborate. *phenotyping_method = "QTN_random"*
+
+	**qtn** : number of QTN. *qtn = 20*
+
+	**h2** : expected heritability. See hertitability mode below. *h2 = 0.6*
+
+	**heritability_mode** : heritability mode that will be used, "absolute" or "average".  The supplied heritability is used to calculate the relative porportion of residual variance in a theorectical recombinant inbred population assuming free recombination between QTN, complete homozygousity, and very large population size. 1) "absolute" - all QTN are assumed to be segregating in the theorectical population. 2) "average" - The average number of expected QTN and effect sizes are evaluated for all possible crosses between founders.  *heritability_mode = "average"*
+
+	**effect_distribution** : effect distributions, either "equal" or "gamma". *effect_distribution = "equal"*
+
+	**min_qtn_freq** : minimum QTN frequency for random selected QTNs, based on perental genotypes. *min_qtn_freq = 0*
+
+	**highest_P** : highest parent in case of "high_low_parents" phenotyping mode. *highest_P=NA*
+
+	**lowest_P** : lowest parent in case of "high_low_parents" phenotyping mode. *lowest_P=NA*
+	
+	**high_to_low_percentage** : the perecentage of opposite effect of lower parent. *high_to_low_percentage=0*
+
+	**input_effects** : user-supplied file only used with "QTN_supplied" method. *input_effects = "qtn_effects.efc"*
+
+	**biased_selection** : If TRUE, selected QTNs will be biased for the regions with high gene density. *biased_selection = TRUE*
+
+	**dominant** : specifies that all loci are dominant.  If set to ‘FALSE’, additive genetic variance is assumed.  Partial dominance is not suppored. *dominant = FALSE*

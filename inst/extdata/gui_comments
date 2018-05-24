@@ -1,0 +1,215 @@
+### haplotypes_in
+	Description: imports a population from an input file.
+	Returns: population
+	Parameters:
+		**input**: the input population file, the output as produced by haplotype_out.
+	Example: pop5 = haplotypes_in(input = "haplo1_out")
+
+### haplotypes_out
+	Description: exports a population to an output file. This is useful for stopping a simulation and restarting it, if needed.
+	Returns: NA
+	Parameters:
+		**pop**: the name of the population to be exported.
+		**output**: the output file will be exported to directory supplied in header and named with the value given
+	Example: haplotypes_out(pop = pop2,output = "haplo1_out")
+
+### draw_haplotypes
+	Description: creates a graph of each chromosome based on parental contributions. The graph will be exported to directory supplied in header.
+	Returns: NA
+	Parameters:
+		**haplotypes**: the population to be drawn.
+	Example: draw_haplotypes(haplotypes=pop2)
+
+### draw_population
+	Description: creates a pie graph of each individual based on parental contributions. See header for additional parameters controlling output.
+	Returns: NA
+	Parameters:
+		**pop**: the population to be drawn.
+	Example: draw_population(pop = pop3)
+
+### phenotype_out
+	Description: exports phenotypes to an output file. See header for additional parameters controlling output.
+	Returns: NA
+	Parameters:
+		**pheno**: the phenotypes variable to be exported.
+		**file**: output file.
+		**level**: the level to be select from,\individuals, families, or crosses.
+		**pop**: the input population
+	Example: phenotype_out(pheno = pheno3, file = "pheno3_predicted")
+
+### genotype_out
+	Description: exports a genotype to an output file in a hapmap format.
+	Returns: NA
+	Parameters:
+		**genotypes**: the genotypes variable to be exported.
+		**output**: an output file.
+		**level**: the level to be select from,\individuals, families, or crosses.
+		**pop**: the input population
+		**A_parent**: the parent AA.
+		**B_parent**: the parent BB.
+	Example: genotypes_out(genotypes=ms3,output="pop4_marker_set")
+
+### cross
+	Description: performs a cross between parentes. The cross can be\one parent by one parent or one parent by list of parents.
+	Returns: population
+	Parameters:
+		**P1**: the first parent to be crossed.
+		**P2**: the second parent/parents to be crossed.
+		**N**: number of individual per crosses
+	Example: pop1 = cross(P1="grg",P2=list("tr","tg"),N=10) #note: “list” function must be used.
+
+### advance
+	Description: advances the haplotypes to successive generations.
+	Returns: population
+	Parameters:
+		**population**: population to be advanced
+		**F**: number of generations
+		**level**: “individual” for single seed descent, “family”, “cross” or “population” for bulk asvancement across the families, crosses or the whole population, respectively.
+		**Clevel**: “individual” for selfing population, “family”, “cross” or “population” for out crosses across the families, crosses or the whole population, respectively. Outcrossing can occur at all levels lower than the supplied level as well. For example, outcrossing will occur at “family” level if clevel = “population”.
+	Example: pop2 = advance(pop = pop1,F=5,level="individual",clevel="individual")
+
+### create_families
+	Description: creates families from haplotypes
+	Returns: population
+	Parameters:
+		**pop**: population to create families from
+		**S**: number of individuals per family
+		**is_clone**: create families as clones
+	Example: pop3 = create_families(pop=pop2,S=5)
+
+### select
+	Description: performs selection on a population based on phenotypes and different filters.
+	Returns: population
+	Parameters:
+		**pop**: population to select from
+		**N**: absolute number , ex. “5”, or percentage, ex. “10%”, of selected individuals/families/crosses. Percentage sign must be used for percent.
+		**level**: the level to be select from,\individuals, families, or crosses.
+		**method**: the selection method, top, bottom or random phenotypes.
+		**phenotype**: an optional input phenotype. If NA, the automated produced phenotype will be used
+	Example: pop6 = select(pop = pop3,N = 3, level = "individual",method="top")
+
+### dh
+	Description: performs a double haplodization of a cross.
+	Returns: population
+	Parameters:
+		**pop**: a cross population to be double haploided.
+	Example: pop10 = dh(pop=pop1)
+
+### mas
+	Description: performs selection based on Marker Assistant Selection.
+	Returns: population
+	Parameters:
+		**pop**: population to select from
+		**marker**: a list of markers containing the marker id, the allele and frequency threshold, ex. [("Aradu.A01_8315233","A",0.5),("Araip.B10_125281670","C",0.5)]. If the threshold is 0.5,heterozygous or better will be selected.
+		**level**: the level to be select from, “individual”, “family”, or “cross”. For example, If “family” is used, the allele frequency assessed across entire families.\ 
+	Example: pop3_b = mas(pop = pop3,marker = [("Aradu.A01_8315233","A",0.5),("Araip.B10_125281670","C",0.5)], level = 1)
+
+### create_population
+
+    Description:: creates 
+	Returns: population
+	Parameters:
+		**P**: a list of parents.
+	Example: pop10 = create_population(P=list("tg","tr","grg"))
+
+### pick_individual
+	Description: picks an individual\from a selection based on the selection criteria. This function is useful to use on populations that have resulted from selection. In such cases, each level (if they exist in the population) will be sorted with having the highest phenotype and having the lowest, see example.
+	Returns: an individual
+	Parameters:
+		**pop**: population name
+		**cross**: the cross to be select.
+		**family**: the family to be select.
+		**individual**: the individual to be select.
+	Example: pop11 = pick_individuals(pop=pop10,cross=NA,family=2,individual=1) # this would select the top individual from the second best family in the population.
+	
+### combine_populations	
+	Description: combines a list of populations
+	Returns: population
+	Parameters:
+		**pops**: list of population
+	Example: pop9 = combine_populations(list(pop1,pop2))
+
+### get_phenotype
+	Description: calculates the phenotypes of a population.
+	Returns: phenotypes
+	Parameters:
+		**pop**: population
+		**tgv_only**: If TRUE, True Breeding Values will be produced, otherwise, the phenotypic values, with environmental/residual variance, will be produced.*FALSE*
+	Example: pheno2 = get_phenotype(pop = pop2,tgv_only=FALSE)
+
+### genomic_prediction
+	Description: calculates the phenotypes of a population based on genomic prediction.
+	Returns: phenotypes
+	Parameters:
+		**train_geno**: genotypes to use for training
+		**train_pheno**: phenotypes to use for training
+		**predict_geno_pop**: population to be predicted
+		**method**: “rrBLUP” and “parental_contribution” methods are available. “rrBLUP” is ridge regression BLUP\model implemented in package “rrBLUP”, and “parental-contribution” uses an in-house gBLUP model, only on parental genotypes.
+		**level**: only available to “rrBLUP” module to assign the pooled samples of\“individual”, “cross”, “family”, or “population”.
+		**pop**: the pop which was used to create the training sets, it should be used only with “rrBLUP” method when level is assigned.\
+	Example: pheno3 = genomic_prediction(train_geno=ms2,train_pheno=pheno2,predict_geno_pop=ms3,method="rrBLUP", level = “cross”, pop = pop3)
+
+### get_genotypes
+	Description: retrieves the genotypes of a population.
+	Returns: genotypes
+	Parameters:
+		**pop**: population
+		**pre-selected_markers**: a variable or a file of pre-selected markers to be selected from the population
+	Example: ms1 = get_genotypes(pop = pop3)
+
+### create_marker_set
+    Description: creates markers from genotypes based on Minor Allele Frequency.
+    Returns: genotypes
+	Parameters:
+	    **genotypes**: genotypes
+        **N**: absolute number of QTNs to be randomly selected
+        **MAF**: a threshold Minor Allele Frequency to be applied to the selected QTNs
+        **no_qtn**: a logical variable to filter out the pre-selected QTNs. *FALSE*
+        **biased_selection**: check if the selection is biased toward gene high density regions
+    Example: ms2 = create_marker_set(pop = pop3, N=200, MAF=0.1)
+                ms3 = create_marker_set(pop = pop3, ms2)
+        
+### count_chr_legnth
+	Description: the tool counts chromsomes’ length from a fasta file.
+	Returns: NA
+	Parameters:
+		**fa**: the genome file
+		**output**: an output file
+
+### vcf2hapmap
+	Description: the tool converts vcf files to hapmap format.
+	Returns: NA
+	Parameters:
+		**input**: an input vcf file
+		**output**: an output hapmap file
+
+### create_genome
+	Description: the tool creates a simulated genomes based on genotypes.
+	Returns: NA
+	Parameters:
+		**fa**: the genome file
+		**genotype**: genotypes to be simulated
+		**output**: an output directory
+		**haploid_only**: only simulate one set if TRUE, otherwise the two sets of chromosomes will be simulated. *FALSE*
+		**max_total_size_in_gb**: maximum total size available for the process on the disk in giga bytes
+
+### simulate_fastq
+	Description: the tool creates a simulated paired_end fastq files based on genotypes.
+	Returns: NA
+	Parameters:
+		**single_reads**: TRUE if single-end reads need to be simulated. By default, paired-end reads are simulated. *FALSE*
+		**input**: reference genome
+		**genotypes**: genotypes to be simulated
+		**read_len**: read length
+		**fold**: sequencing depth, the value is divided by number of individual in the genotypes file, ex. 100 value on a file of 50 individual creates 2X sequencing depth/individual.
+		**art_binary_location**: the location of ART software if the user want to change the default one
+
+### filter_parents
+	Description: the tool filters the input hapmap or vcf file to selected parents in a hampam format.
+	Returns: NA
+	Parameters:
+		**input**: an input vcf/hapmap file
+		**output**: an output hapmap file
+		**selected_parents_file**: a file contains parents to be selected
+
+### 

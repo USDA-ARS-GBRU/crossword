@@ -1,0 +1,38 @@
+output_folder="crossword_output_02"
+iterations=2
+input_folder=system.file("extdata/peanut_input",package="crossword")
+im_type="svg"
+by_chromosomes=TRUE
+heterozygous=FALSE
+gff="peanut.gff"
+chr_stat="chr_siz.txt"
+chr_length="chr_len.txt"
+window_size=100000
+input="parental_genotypes.hapmap"
+outcross=0
+input_loci="parental_genotypes.loc"
+homo=TRUE
+phenotyping_method="QTN_random"
+qtn=20
+h2=0.6
+heritability_mode="average"
+effect_distribution="equal"
+min_qtn_freq=0
+highest_P=NA
+lowest_P=NA
+high_to_low_percentage=0
+input_effects="qtn_effects.efc"
+biased_selection=TRUE
+dominant=FALSE
+I="start"
+#################breeding program start here###################
+pop1 = cross(P1="tr",P2="tg",N=10)
+pop2 = advance(pop = pop1,F=arg1,level="individual",clevel="individual")
+pop3 = create_families(pop=pop2,S=5)
+pop3A = select(pop = pop3,N = 5, level = "individual",method="top")
+pop3B = select(pop = pop3,N = 5, level = "individual",method="bottom")
+geno3A = get_genotypes(pop = pop3A)
+geno3B = get_genotypes(pop = pop3B)
+genotypes_out(genotypes=geno3A,output="geno3A")
+genotypes_out(genotypes=geno3B,output="geno3B")
+###############################################################
