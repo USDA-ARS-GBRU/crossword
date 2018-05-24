@@ -1,7 +1,7 @@
-# crossword
+## crossword
 A data-driven simulation language for the design of genetic-mapping experiments and breeding strategies
 
-Installation:
+# Installation:
 1. if simcross is not installed, we suggest to install it in advance
     
         devtools::install_github("kbroman/simcross")
@@ -14,9 +14,10 @@ Installation:
 
         library('crossword')
 
-Citation: The publication will be published soon
+# Citation: 
+The publication will be published soon
 
-Implementation:
+# Implementation:
 
 1. The manual is available at Wiki page.
 
