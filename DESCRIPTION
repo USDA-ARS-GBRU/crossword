@@ -1,0 +1,25 @@
+Package: crossword
+Title: Breeding program similation sotware
+Version: 0.99.0
+Author: person("Walid", "Korani", email = "korani@uga.edu",
+    role = c("aut", "cre"))
+Maintainer: Walid Korani <korani@uga.edu>
+Description: breeding simulation.
+Depends:
+    R (>= 3.2.3)
+License: MIT + file LICENSE
+LazyData: true
+Imports: shape,
+    ggplot2,
+    simcross,
+	gridExtra,
+	Rcpp,
+	mapplots,
+	rrBLUP,
+	Biostrings,
+	gWidgets,
+	gWidgetstcltk,
+    knitr
+URL: https://github.com/w-korani/keggseq
+biocViews: breeding, simulation
+VignetteBuilder: knitr
