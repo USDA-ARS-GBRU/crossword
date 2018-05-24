@@ -3,9 +3,13 @@ A data-driven simulation language for the design of genetic-mapping experiments 
 
 Installation:
 1. if simcross is not installed, we suggest to install it in advance
+    
     devtools::install_github("kbroman/simcross")
+
 2. installing crossword          
+    
     devtools::install_github("USDA-ARS-GBRU/crossword")
+
 3. loading crossword
     library('crossword')
 
@@ -32,5 +36,5 @@ Implementation:
 
 5. for running using Rscript:
   Rscript ./crossword.R tutoria
-  Rscript ./crossword.R script_file
-
+  Rscript ./crossword.R Rscript ./crossword.R crossword_script_input_file.script
+  note: auxiliary functinos can run through Rscript by pathing function name then the function's arguments in their order.
