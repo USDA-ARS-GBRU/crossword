@@ -28,9 +28,13 @@ run_batch <- function (script_file,argument_file,run)
         }
     }
     C3 = matrix(nrow=length(list2),ncol=length(strsplit(list1[1],",")[[1]]))
+    out = sc[which(grepl("output_folder",sc))]
+    out = gsub('#.*','',out)
+	out = gsub(' ','',out)
+	out = gsub('\t*','',out)	
+    dir1 = gsub("\"","",gsub("output_folder=","",out))
     if(run == TRUE)
-    {
-        dir1 = gsub("\"","",gsub("output_folder=","",sc[which(grepl("output_folder",sc))]))
+    {    
         dir.create(dir1)
     }
     for (y in 1:length(list2))
