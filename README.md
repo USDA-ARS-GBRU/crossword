@@ -44,6 +44,8 @@ The publication will be published soon
 .*note: you have to exit R, and copy crossword.R and the script file from the installed library to the local location.
           
           Rscript ./crossword.R tutorial
-          Rscript ./crossword.R Rscript ./crossword.R crossword_script_input_file.script
+          Rscript ./crossword.R crossword_script_input_file.script
 *note: auxiliary functions can run through Rscript by passing function name then the function's arguments in their order.
-*note: for implementing more arguments, add more lines to list2, with the argument names and values. Then, edit the argument names in the script file.
+*note: for implementing more arguments, add more lines to list2, with the argument names and values. Then, edit the argument names in the script file, example:
+            
+            Rscript ./crossword.R vcf2hapmap peanut.vcf peanut.hapmap
