@@ -30,7 +30,7 @@ if(args[1] == "tutorial")
     simulate_fastq(as.logical(args[2]),args[3],args[4],as.numeric(args[5]),as.numeric(args[6]),args[7])
 }else if(args[1] == "run_batch")
 {
-    run_batch(args[2],args[3],run=TRUE)
+    run_batch(args[2],args[3],as.logical(args[4]))
 }else
 {
     script_file = args[1]
