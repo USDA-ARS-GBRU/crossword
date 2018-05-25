@@ -13,4 +13,4 @@ run_batch(script_file,argument_file,run)
 \item{argument_file}{Required: a file contains the argument description}
 \item{run}{Optional: TRUE if the user needs to run the all scripts, default is FALSE}}
 \examples{
-run_batch("test2.script","list2b",run=TRUE)}
+run_batch("test2.script","listOfParameters",run=TRUE)}
