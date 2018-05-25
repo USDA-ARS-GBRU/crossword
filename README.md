@@ -11,9 +11,6 @@ A data-driven simulation language for the design of genetic-mapping experiments 
     
         devtools::install_github("USDA-ARS-GBRU/crossword")
 
-## Citation: 
-The publication has been submitted and will be linked here when accepted.
-
 ## Running crossword:
 
 The full manual is available at Wiki page in the tab above.
@@ -49,3 +46,6 @@ These commands are run at the command prompt (not in R, as the above).  Copy "cr
 Auxiliary functions can be run through Rscript by passing the function name then the function's arguments in their order.
             
             Rscript ./crossword.R vcf2hapmap peanut.vcf peanut.hapmap
+
+## Citation: 
+The publication has been submitted and will be linked here when accepted.
