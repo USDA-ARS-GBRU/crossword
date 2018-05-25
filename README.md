@@ -2,50 +2,50 @@
 A data-driven simulation language for the design of genetic-mapping experiments and breeding strategies
 
 ## Installation:
-0. run R 
-1. if simcross is not installed, we suggest to install it in advance
+0. Open a command prompt and run R by typing "R[enter]".  Unless otherwise indicated, the following commands should be typed at the R prompt.
+1. If simcross is not installed, we suggest to install it in advance.  
     
         devtools::install_github("kbroman/simcross")
 
-2. installing crossword          
+2. Install crossword.         
     
         devtools::install_github("USDA-ARS-GBRU/crossword")
 
-3. loading crossword
-
-        library('crossword')
-
 ## Citation: 
-The publication will be published soon
+The publication has been submitted and will be linked here when accepted.
 
-## Implementation:
+## Running crossword:
 
-### 1. The manual is available at Wiki page.
+The full manual is available at Wiki page in the tab above.
 
-### 2. for simple example running:
-  
-          script_file = "crossword_script_input_file.script"
-          script_file = paste0(system.file("extdata",package="crossword"),"/",script_file)
-          run_pipeline(script_file)
-  
-### 3. for running using GUI:
+### For running using GUI:
             
+            library('crossword')
             crossword_gui()
-            
-### 4. for running multiple simulations:
+           
+The x-window environment should open and commands can be entered accordingly.
 
-          script_file2 = "test2.script"
-          script_file2 = paste0(system.file("extdata",package="crossword"),"/",script_file2)
-          list2 = "list2"
-          list2 = paste0(system.file("extdata",package="crossword"),"/",list2)
+### For running directly from crossword script:
+  
+          library('crossword')
+          script_file = paste0(system.file("extdata",package="crossword"),"/crossword_script_input_file.script")
+          run_pipeline(script_file)
+
+### For running multiple simulations using a range of parameters:
+
+See the listOfParameters.txt example file.  The variable names in listOfParameters.txt should match those use in the crossword script.  We recommend using all-caps for these names in order to be clear.
+
+          script_file2 = paste0(system.file("extdata",package="crossword"),"/test2.script")
+          list = paste0(system.file("extdata",package="crossword"),"/listOfParameters.txt")
           run_batch(script_file2,list2,run=TRUE)
 
-### 5. for running using Rscript (outside R):
-.*note: you have to exit R, and copy crossword.R and the script file from the installed library to the local location.
+### For running using Rscript (outside R):
+
+These commands are run at the command prompt (not in R, as the above).  Copy "crossword.R" and the script file from the installed library to the local location and modify as needed.
           
           Rscript ./crossword.R tutorial
           Rscript ./crossword.R crossword_script_input_file.script
-*note: auxiliary functions can run through Rscript by passing function name then the function's arguments in their order.
-*note: for implementing more arguments, add more lines to list2, with the argument names and values. Then, edit the argument names in the script file, example:
+
+Auxiliary functions can be run through Rscript by passing the function name then the function's arguments in their order.
             
             Rscript ./crossword.R vcf2hapmap peanut.vcf peanut.hapmap
