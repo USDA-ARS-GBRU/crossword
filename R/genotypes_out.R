@@ -25,7 +25,7 @@ genotypes_out <- function(genotypes,output,level,pop,parental_genotypes,A_parent
 	geno3 = gsub('([[:alpha:]])\\1+', '\\1', geno2b)
 	for (y in 1:length(geno3))
 	{
-	    if(length(geno3[y]) ==1)
+	    if(nchar(geno3[y]) ==1)
 	    {
 	        geno3[y] = paste0(geno3[y],geno3[y])
 	    }
@@ -107,7 +107,7 @@ genotypes_out <- function(genotypes,output,level,pop,parental_genotypes,A_parent
 	        bb = BB[i]
 	        uniq1 = rawToChar(unique(charToRaw(paste0(aa,collapse=""))))
             uniq2 = rawToChar(unique(charToRaw(paste0(bb,collapse=""))))
-            if(length(uniq1) > 1 || length(uniq2) >1 || uniq1 == uniq2){CC[i,] = "-"}else
+            if(nchar(uniq1) > 1 || nchar(uniq2) >1 || uniq1 == uniq2){CC[i,] = "-"}else
             {
                 for(x in 1:ncol(geno))
                 {
