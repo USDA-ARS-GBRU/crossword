@@ -30,7 +30,12 @@ phenotype <- function(pop,qtn_effect,tgv_only,vr,parental_genotypes)
 	}
     ids = as.character(pop[[1]][pop[[1]]$gen==pop[[1]][nrow(pop[[1]]),2],1])
     pop2 = select_haplotype(pop,ids)
-    haplo_genotypes = get_genotypes(parental_genotypes,pop2)  
+    pg1 = parental_genotypes[[1]][which(rownames(parental_genotypes[[1]]) %in% rownames(qtn_effect)),]
+    pg2 = as.data.frame(parental_genotypes[[2]][which(rownames(parental_genotypes[[2]]) %in% rownames(qtn_effect)),])
+    colnames(pg2) = "loci"
+    rownames(pg2) = rownames(pg1)
+    GENO2 = list(genotypes=pg1,gen2phy=pg2)
+    haplo_genotypes = get_genotypes(GENO2,pop2)  
     po2 = as.data.frame(haplo_genotypes$genotypes[as.character(qtn_effect$QTN),])
     Value = get_values(po2,qtn_effect)
     cal_var = var(Value,na.rm = TRUE)
