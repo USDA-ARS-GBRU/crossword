@@ -66,9 +66,9 @@ random_qtn_assign <- function(qtn,gen2phy,biased_selection,parental_genotypes,mi
         high_to_low_percentage = high_to_low_percentage
     }
     po2 = parental_genotypes$genotypes
-    if(nrow(po2) > 100000)
+    if(nrow(po2) > 10000)
     {
-        po2 = po2[sample(1:nrow(po2),100000),]
+        po2 = po2[sample(1:nrow(po2),10000),]
     }
     ######################################################################################################################
     ## in case of the user needs to apply biased selection toward the regions with high gene density vs non-coding regions
