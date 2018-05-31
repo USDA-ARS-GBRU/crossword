@@ -30,7 +30,7 @@ phenotype <- function(pop,qtn_effect,tgv_only,vr,parental_genotypes)
 	}
     ids = as.character(pop[[1]][pop[[1]]$gen==pop[[1]][nrow(pop[[1]]),2],1])
     pop2 = select_haplotype(pop,ids)
-    haplo_genotypes = get_genotypes(parental_genotypes,pop)  
+    haplo_genotypes = get_genotypes(parental_genotypes,pop2)  
     po2 = as.data.frame(haplo_genotypes$genotypes[as.character(qtn_effect$QTN),])
     Value = get_values(po2,qtn_effect)
     cal_var = var(Value,na.rm = TRUE)
