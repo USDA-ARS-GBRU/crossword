@@ -8,7 +8,7 @@ A data-driven simulation language for the design of genetic-mapping experiments 
 
 1. If simcross is not installed, we suggest to install it in advance.  
     
-        devtools::install_github("kbroman/simcross")
+        devtools::install_github("kbroman/simcross",force=TRUE)
 
 2. Install crossword.         
     
