@@ -2,7 +2,10 @@
 A data-driven simulation language for the design of genetic-mapping experiments and breeding strategies
 
 ## Installation:
-0. Open a command prompt and run R by typing "R[enter]".  Unless otherwise indicated, the following commands should be typed at the R prompt.
+0. Open a command prompt and run R by typing "R[enter]".  Unless otherwise indicated, the following commands should be typed at the R prompt. "devtools" is required to install any package from github. If you do not have it, it can be installed by the following command:
+
+        install.packages("devtools")
+
 1. If simcross is not installed, we suggest to install it in advance.  
     
         devtools::install_github("kbroman/simcross")
