@@ -15,7 +15,7 @@ In-silico simulation of breeding methodologies can save time and resources. Curr
 2. Install crossword:        
     
         devtools::install_github("USDA-ARS-GBRU/crossword")
-3. Automated test suite: After installation was done, the following can be run to test loading the library and crossword commands as "crossword_script_input_file.script" has a test of all crossword syntax commands
+3. Automated test suite: the following commands can be run to test library loading and crossword commands since "crossword_script_input_file.script" has examples of all crossword syntax commands
          
           library('crossword')
           script_file = paste0(system.file("extdata",package="crossword"),"/crossword_script_input_file.script")
