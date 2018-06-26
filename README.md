@@ -1,6 +1,8 @@
 # crossword
 A data-driven simulation language for the design of genetic-mapping experiments and breeding strategies
 
+In-silico simulation of breeding methodologies can save time and resources. Current tools are difficult to use and rarely address the actual genetic structure of the population under study. Here, we introduce “crossword”, which utilizes the widely available results of next-generation sequencing data to create more realistic simulations and to simplify user input. The software was written in R, which makes installation and implementation straightforward. A graphical user interface is also available. By introducing the concept of levels to reflect family relatedness, the software is suitable to a broad range of breeding programs and crops. We illustrate its utility by examining the effect of family size and number of selfing generations on phenotyping accuracy. Additionally, we explore the ramifications of effect polarity among parents in a mapping cross, such as when all positive effect alleles are from a single parent. Furthermore, results from QTL-seq simulation are supported by empirical data. Given the ease of use and apparent realism, we anticipate crossword will quickly become the “bicycle for the [breeders’] mind”.
+
 ## Installation:
 0. Open a command prompt and run R by typing "R[enter]".  Unless otherwise indicated, the following commands should be typed at the R prompt. "devtools" is required to install any package from github. If you do not have it, it can be installed by the following command:
 
@@ -10,9 +12,14 @@ A data-driven simulation language for the design of genetic-mapping experiments 
     
         devtools::install_github("kbroman/simcross",force=TRUE)
 
-2. Install crossword.         
+2. Install crossword:        
     
         devtools::install_github("USDA-ARS-GBRU/crossword")
+3. Automated test suite: After installation was done, the following can be run to test loading the library and crossword commands as "crossword_script_input_file.script" has a test of all crossword syntax commands
+         
+          library('crossword')
+          script_file = paste0(system.file("extdata",package="crossword"),"/crossword_script_input_file.script")
+          run_pipeline(script_file)
 
 ## Running crossword:
 
