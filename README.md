@@ -20,6 +20,8 @@ In-silico simulation of breeding methodologies can save time and resources. Curr
           library('crossword')
           script_file = paste0(system.file("extdata",package="crossword"),"/crossword_script_input_file.script")
           run_pipeline(script_file)
+          
+* Differnt example scripts and input files, which were used in the manuscript, are available at "paper_simulations" directory.
 
 ## Running crossword:
 
