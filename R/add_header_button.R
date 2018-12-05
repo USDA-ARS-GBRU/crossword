@@ -15,12 +15,30 @@ add_header_button <- function(e)
     g1 = ggroup(container=win1,horizontal=TRUE)
     g1a = ggroup(container=g1,horizontal=FALSE)
     g1b = ggroup(container=g1,horizontal=FALSE)    
+
     l1 = gedit(width = 25,text = "output_folder",container=g1a)
-    t1 = gedit(width = 50,text = sub(".*output_folder=(.*)\niterations=.*","\\1",ss),container=g1b)
+    t1 = gedit(width = 50,text = sub(".*output_folder=(.*)\niterations=.*","\\1",ss),container=g1b)    
+    blank_t = glabel(container=g1a,enabled=FALSE)
+    font(blank_t) = c(size=14)
+    filename=""
+    dialog_b1 = gbutton(text='Browse',container=g1b,handler=function(...){
+    filename <- tclvalue(tkchooseDirectory())
+    if(filename!=""){svalue(t1) = paste0("\"",filename,"\"")}   
+    })
+    
     l20 = gedit(width = 25,text = "iterations",container=g1a)
     t20 = gedit(width = 50,text = "2",container=g1b)
+       
     l2 = gedit(width = 25,text = "input_folder",container=g1a,spacing =50)
-    t2 = gedit(width = 50,text = sub(".*input_folder=(.*)\nim_type=.*","\\1",ss),container=g1b,spacing=50)
+    t2 = gedit(width = 50,text = sub(".*input_folder=(.*)\nim_type=.*","\\1",ss),container=g1b,spacing=50)   
+    blank_t = glabel(container=g1a,enabled=FALSE)
+    font(blank_t) = c(size=14)
+    filename=""
+    dialog_b2 = gbutton(text='Browse',container=g1b,handler=function(...){
+    filename <- tclvalue(tkchooseDirectory())
+    if(filename!=""){svalue(t2) = paste0("\"",filename,"\"")}   
+    })
+    
     l3 = gedit(width = 25,text = "im_type",container=g1a)
     rb3 = gcombobox(c("\"svg\"","\"png\"","\"pdf\"","\"jpeg\"","\"tiff\"","\"bmp\""), container=g1b,horizontal =TRUE)
     svalue(rb3) = sub(".*im_type=(.*)\nby_chromosomes=.*","\\1",ss)
@@ -36,12 +54,37 @@ add_header_button <- function(e)
     g2 = ggroup(container=win1,horizontal=TRUE)
     g2a = ggroup(container=g2,horizontal=FALSE)
     g2b = ggroup(container=g2,horizontal=FALSE)  
+    g2c = ggroup(container=g2,horizontal=FALSE)
     l4 = gedit(width = 25,text = "gff",container=g2a)
     t4 = gedit(width = 50,text = sub(".*gff=(.*)\nchr_stat=.*","\\1",ss),container=g2b)
+    blank_t = glabel(container=g2a,enabled=FALSE)
+    font(blank_t) = c(size=14)
+    filename=""
+    dialog_b3 = gbutton(text='Browse',container=g2b,handler=function(...){
+    filename <- tclvalue(tkgetOpenFile())
+    if(filename!=""){svalue(t4) = paste0("\"",filename,"\"")}   
+    })
+    
     l5 = gedit(width = 25,text = "chr_stat",container=g2a)
     t5 = gedit(width = 50,text = sub(".*chr_stat=(.*)\nchr_length=.*","\\1",ss),container=g2b)
+    blank_t = glabel(container=g2a,enabled=FALSE)
+    font(blank_t) = c(size=14)
+    filename=""
+    dialog_b4 = gbutton(text='Browse',container=g2b,handler=function(...){
+    filename <- tclvalue(tkgetOpenFile())
+    if(filename!=""){svalue(t5) = paste0("\"",filename,"\"")}   
+    })
+    
     l6 = gedit(width = 25,text = "chr_length",container=g2a)
     t6 = gedit(width = 50,text = sub(".*chr_length=(.*)\nwindow_size=.*","\\1",ss),container=g2b)
+    blank_t = glabel(container=g2a,enabled=FALSE)
+    font(blank_t) = c(size=14)
+    filename=""
+    dialog_b5 = gbutton(text='Browse',container=g2b,handler=function(...){
+    filename <- tclvalue(tkgetOpenFile())
+    if(filename!=""){svalue(t6) = paste0("\"",filename,"\"")}   
+    })
+    
     l7 = gedit(width = 25,text = "window_size",container=g2a)
     t7 = gedit(width = 50,text = sub(".*window_size=(.*)\ninput=.*","\\1",ss),container=g2b) 
     #############founder genotypes##################
@@ -52,10 +95,26 @@ add_header_button <- function(e)
     g3b = ggroup(container=g3,horizontal=FALSE)  
     l11 = gedit(width = 25,text = "input",container=g3a)
     t11 = gedit(width = 50,text = sub(".*input=(.*)\noutcross=.*","\\1",ss),container=g3b)
+    blank_t = glabel(container=g3a,enabled=FALSE)
+    font(blank_t) = c(size=14)
+    filename=""
+    dialog_b6 = gbutton(text='Browse',container=g3b,handler=function(...){
+    filename <- tclvalue(tkgetOpenFile())
+    if(filename!=""){svalue(t11) = paste0("\"",filename,"\"")}   
+    })
+    
     l8 = gedit(width = 25,text = "outcross",container=g3a)
     t8 = gedit(width = 50,text = sub(".*outcross=(.*)\ninput_loci=.*","\\1",ss),container=g3b)
     l11b = gedit(width = 25,text = "input_loci",container=g3a)
     t11b = gedit(width = 50,text = sub(".*input_loci=(.*)\nhomo=.*","\\1",ss),container=g3b)
+    blank_t = glabel(container=g3a,enabled=FALSE)
+    font(blank_t) = c(size=14)
+    filename=""
+    dialog_b7 = gbutton(text='Browse',container=g3b,handler=function(...){
+    filename <- tclvalue(tkgetOpenFile())
+    if(filename!=""){svalue(t11b) = paste0("\"",filename,"\"")}   
+    })
+    
     l12 = gedit(width = 25,text = "homo",container=g3a)
     rb12 = gcombobox(c("TRUE","FALSE"),container=g3b,horizontal=TRUE)
     svalue(rb12) = sub(".*homo=(.*)\nphenotyping_method=.*","\\1",ss)
@@ -88,6 +147,14 @@ add_header_button <- function(e)
     t14e = gedit(width = 50,text = sub(".*high_to_low_percentage=(.*)\ninput_effects=.*","\\1",ss),container=g4b)
     l19 = gedit(width = 25,text = "input_effects",container=g4a)
     t19 = gedit(width = 50,text = sub(".*input_effects=(.*)\nbiased_selection=.*","\\1",ss),container=g4b)
+    blank_t = glabel(container=g4a,enabled=FALSE)
+    font(blank_t) = c(size=14)
+    filename=""
+    dialog_b8 = gbutton(text='Browse',container=g4b,handler=function(...){
+    filename <- tclvalue(tkgetOpenFile())
+    if(filename!=""){svalue(t19) = paste0("\"",filename,"\"")}   
+    })
+    
     l17 = gedit(width = 25,text = "biased_selection",container=g4a)
     rb17 = gcombobox(c("TRUE","FALSE"),container=g4b,horizontal=TRUE)
     svalue(rb17) = sub(".*biased_selection=(.*)\ndominant=.*","\\1",ss)

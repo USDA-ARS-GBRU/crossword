@@ -1,4 +1,4 @@
-add_button <- function(name_function,name_output,a1,a2,e,execute_now,com,typein)
+add_button <- function(name_function,name_output,a1,a2,e,execute_now,com,typein,buttons)
 {
 	require(gWidgets)
     require(gWidgetstcltk)
@@ -28,14 +28,65 @@ add_button <- function(name_function,name_output,a1,a2,e,execute_now,com,typein)
 	for (i in 1:length(a1))
 	{
 		eval(parse(text = paste0("l1_",i," = glabel(\"",a1[i],"\",container=g1a)")))
-    if(!missing(typein))
-    {
-        eval(parse(text = paste0("t1_",i," = ",typein[i],"(\"",a2[i],"\",container=g1b)")))
-    }else if(missing(typein))
-    {
-		eval(parse(text = paste0("t1_",i," = gedit(\"",a2[i],"\",container=g1b)")))
-    }
-    eval(parse(text =paste0("OUT[[i]] = t1_",i)))
+        if(!missing(typein))
+        {
+            eval(parse(text = paste0("t1_",i," = ",typein[i],"(\"",a2[i],"\",container=g1b)")))
+        }else if(missing(typein))
+        {
+		    eval(parse(text = paste0("t1_",i," = gedit(\"",a2[i],"\",container=g1b)")))
+        }
+        eval(parse(text =paste0("OUT[[i]] = t1_",i)))
+        #########
+        if(!missing(buttons))
+        {          
+            if(!is.na(buttons[i]))
+            {
+                blank_t = glabel(container=g1a,enabled=FALSE)
+                font(blank_t) = c(size=14)
+                filename=""          
+                if(buttons[i] == "tkgetOpenFile")
+                {
+                   xx= i
+                   dialog_b = gbutton(text='Browse',container=g1b,handler= function(...) {
+	               browse_open(OUT[[xx]])} )                        
+                }else if(buttons[i] == "tkgetSaveFile")
+                {
+                   xx= i
+                   dialog_b = gbutton(text='Browse',container=g1b,handler= function(...) {
+	               browse_save(OUT[[xx]])} )             
+                }else if(buttons[i] == "tkchooseDirectory")
+                {
+                    xx= i
+                   dialog_b = gbutton(text='Browse',container=g1b,handler= function(...) {
+	               browse_dir(OUT[[xx]])} )  
+                }
+            }
+        }
+	}
+	
+	browse_save <- function(object)
+	{
+	    filename <- paste0("\"",tclvalue(tkgetSaveFile()),"\"")
+	    if(filename!="")
+	    {	        
+	        svalue(object) = filename
+	    }
+	}
+	browse_open <- function(object)
+	{
+	    filename <- paste0("\"",tclvalue(tkgetOpenFile()),"\"")
+	    if(filename!="")
+	    {	        
+	        svalue(object) = filename
+	    }
+	}
+	browse_dir <- function(object)
+	{
+	    filename <- paste0("\"",tclvalue(tkchooseDirectory()),"\"")
+	    if(filename!="")
+	    {	        
+	        svalue(object) = filename
+	    }
 	}
 	g2 = ggroup(container=w1,horizontal=TRUE)
 	out_put <- function()

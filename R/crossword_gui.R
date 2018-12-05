@@ -17,20 +17,20 @@ crossword_gui <- function()
         {add_header_button(t0)}
     ###input_output
     list1$input_output$haplotypes_in$handler =  function(h,...)
-        {add_button("haplotypes_in","pop5",c("input"),c("\\\"haplo1_out\\\""),t0,FALSE,com = comments(file_2,"haplotypes_out"))}
+        {add_button("haplotypes_in","pop5",c("input"),c("\\\"haplo1_out\\\""),t0,FALSE,com = comments(file_2,"haplotypes_out"),,c("tkgetOpenFile"))}
     list1$input_output$haplotypes_out$handler = function(h,...)
-        {add_button("haplotypes_out","",c("pop","output"),c("pop2","\\\"haplo1_out\\\""),t0,FALSE,com = comments(file_2,"haplotypes_in"))} 
+        {add_button("haplotypes_out","",c("pop","output"),c("pop2","\\\"haplo1_out\\\""),t0,FALSE,com = comments(file_2,"haplotypes_in"),,c(NA,"tkgetSaveFile"))} 
     list1$input_output$draw_haplotypes$handler = function(h,...)
         {add_button("draw_haplotypes","",c("haplotypes"),c("pop2"),t0,com = comments(file_2,"draw_haplotypes"))}
     list1$input_output$draw_population$handler = function(h,...)
         {add_button("draw_population","",c("pop"),c("pop3"),t0,FALSE,com = comments(file_2,"draw_population"))}
     list1$input_output$phenotype_out$handler = function(h,...)
-        {po2 = add_button("phenotype_out","",c("pheno","file","level","pop"),c("pheno3", "\\\"pheno3_predicted\\\"","\\\"family\\\"","pop3"),t0,FALSE,com = comments(file_2,"phenotype_out"),c("gedit","gedit","gcombobox","gedit"))
+        {po2 = add_button("phenotype_out","",c("pheno","file","level","pop"),c("pheno3", "\\\"pheno3_predicted\\\"","\\\"family\\\"","pop3"),t0,FALSE,com = comments(file_2,"phenotype_out"),c("gedit","gedit","gcombobox","gedit"),c(NA,"tkgetSaveFile",NA,NA))
         po3 = po2[[3]]
         po3[] = c("NA","\"individual\"","\"family\"","\"cross\"","\"population\"")
         }
     list1$input_output$genotypes_out$handler = function(h,...)
-        {go2 = add_button("genotypes_out","",c("genotypes","output","level","pop","A_parent","B_parent"),c("ms3","\\\"pop3_marker_set\\\"","\\\"family\\\"","pop3","NA","NA"),t0,FALSE,com = comments(file_2,"genotype_out"),c("gedit","gedit","gcombobox","gedit","gedit","gedit"))
+        {go2 = add_button("genotypes_out","",c("genotypes","output","level","pop","A_parent","B_parent"),c("ms3","\\\"pop3_marker_set\\\"","\\\"family\\\"","pop3","NA","NA"),t0,FALSE,com = comments(file_2,"genotype_out"),c("gedit","gedit","gcombobox","gedit","gedit","gedit"),c(NA,"tkgetSaveFile",NA,NA,NA,NA))
         go3 = go2[[3]]
         go3[] = c("NA","\"individual\"","\"family\"","\"cross\"","\"population\"")
         }    

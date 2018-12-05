@@ -108,6 +108,7 @@ random_qtn_assign <- function(qtn,gen2phy,biased_selection,parental_genotypes,mi
         }
         len2 = (length(po2[x,])*2)
         xx = apply(as.data.frame(po2[x,]),2,paste0, collapse="")
+        xx = paste0(xx,collapse="")
         xx2 = rawToChar(unique(charToRaw(xx)))
         snp1 = strsplit(xx2,'')[[1]][1]
         snp2 = strsplit(xx2,'')[[1]][2]
@@ -139,6 +140,7 @@ random_qtn_assign <- function(qtn,gen2phy,biased_selection,parental_genotypes,mi
     {
 	    id = rownames(po3)[i]
 	    xx = apply(as.data.frame(po3[i,]),2,paste0, collapse="")
+	    xx = paste0(xx,collapse="")
 	    xx2 = rawToChar(unique(charToRaw(xx)))
 	    snp1 = strsplit(xx2,'')[[1]][1]
         snp2 = strsplit(xx2,'')[[1]][2]

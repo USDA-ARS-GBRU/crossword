@@ -206,7 +206,7 @@ get_parental_genotypes <- function(input,gen2phy,keep_homo)
             colnames(B2) = "loci"
             rownames(B2) = V1    
 			A3 = A3[rownames(A3) %in% V1,]
-			return(list(genotypes = A3, gen2phy = B2))
+			return(list(genotypes = as.matrix(A3), gen2phy = B2))
 	    }
     }else
     {
