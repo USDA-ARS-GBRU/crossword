@@ -3,7 +3,7 @@
 \alias{cross}
 \title{cross}
 \description{The function is used to create haplotype information based on the input \cr
-it uses "create_scheme_from_single_population" and "create_scheme" local functionis to create the scheme \cr
+it uses "create_scheme_from_single_population" and "create_scheme" local function to create the scheme \cr
 and "create_parent" and "cross" functions of 'simcross' package \cr
 The function creates scheme from the provided parental information: \cr
 1. single parent1 X single parent2 \cr
