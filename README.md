@@ -59,5 +59,11 @@ Auxiliary functions can be run through Rscript by passing the function name then
             
             Rscript ./crossword.R vcf2hapmap peanut.vcf peanut.hapmap
 
+| Exteranal Resource  | Reference |
+| ------------- | ------------- |
+| simcross | http://kbroman.org/simcross/ |
+| rrBLUP |Endelman, J. B. 2011. Ridge Regression and Other Kernels for Genomic Selection with R Package rrBLUP. Plant Genome 4:250-255 |
+| ART | Weichun Huang, Leping Li, Jason R Myers, and Gabor T Marth. ART: a next-generation sequencing read simulator, Bioinformatics (2012) 28 (4): 593-594
+
 ## Citation: 
 The publication has been submitted and will be linked here when accepted.
