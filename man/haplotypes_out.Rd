@@ -3,8 +3,7 @@
 \alias{haplotypes_out}
 \title{haplotypes_out}
 \description{
-The function create a readable matrix for input haplotypes and/or store it for further analysis
-}
+The function creates a readable matrix for input haplotypes and/or store it for further analysis.}
 \usage{
 haplotypes_out(pop,output,parental_genotypes)
 }

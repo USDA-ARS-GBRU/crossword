@@ -3,8 +3,7 @@
 \alias{vcf2hapmap}
 \title{vcf2hapmap}
 \description{
-converting vcf file format to standard hapmap format
-}
+The function converts vcf file format to standard hapmap format.}
 \usage{
 vcf2hapmap(input,output)
 }

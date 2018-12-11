@@ -3,8 +3,7 @@
 \alias{mas}
 \title{mas}
 \description{
-The function selects a subset of population based on marker assistant selection
-}
+The function selects a subset of population based on marker assistant selection supplied as input.}
 \usage{
 mas(pop,marker,level,parental_genotypes)
 }

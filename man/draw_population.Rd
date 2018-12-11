@@ -3,8 +3,7 @@
 \alias{draw_population}
 \title{draw_population}
 \description{
-The function plots haplotypes
-}
+The function creates pie plots of haplotypes showing the population structure.}
 \usage{
 draw_population(pop,parental_genotypes,file,im_type)
 }

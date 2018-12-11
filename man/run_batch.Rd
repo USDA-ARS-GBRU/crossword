@@ -3,8 +3,7 @@
 \alias{run_batch}
 \title{run_batch}
 \description{
-run a batch scripts
-}
+The function runs a batch crossword scripts.}
 \usage{
 run_batch(script_file,argument_file,run)
 }

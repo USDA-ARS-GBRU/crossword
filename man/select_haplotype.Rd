@@ -3,8 +3,7 @@
 \alias{select_haplotype}
 \title{select_haplotype}
 \description{
-The function selects a provided list individual.
-}
+The function selects a provided list individual from the input population.}
 \usage{
 select_haplotype(pop,haplotypes_ids)
 }

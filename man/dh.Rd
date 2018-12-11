@@ -3,8 +3,7 @@
 \alias{dh}
 \title{dh}
 \description{
-The function changes the last generation in the population to double haploid
-}
+The function changes the last generation in the population, in the input haplotype object, to double haploid.}
 \usage{
 dh(pop)
 }
@@ -14,7 +13,4 @@ dh(pop)
 A haplotypes' object
 }
 \examples{
-
 pop2 = dh(pop1)}
-
-

@@ -3,7 +3,7 @@
 \alias{filter_parents}
 \title{filter_parents}
 \description{
-filter vcf or hapmap files to ceratin parents
+The function filters vcf or hapmap files for certain parents supplied by user in a text file, and produces a sub-genotype file containing only the supplied parents
 }
 \usage{
 filter_parents(input,output,selected_parents_file)

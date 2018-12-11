@@ -3,8 +3,7 @@
 \alias{phenotype}
 \title{phenotype}
 \description{
-The function calculates phenotying
-}
+The function calculates phenotying for the input haplotype object using the QTN supplied effects.}
 \usage{
 phenotype(pop,qtn_effect,tgv_only,vr,parental_genotypes)
 }
@@ -28,7 +27,7 @@ parental_genotypes = get_parental_genotypes(input,gen2phy,homo)
 biased_selection = TRUE
 min_qtn_freq = 0
 dominant=FALSE
-effect_distribution = "equall"
+effect_distribution = "equal"
 pop3 = create_families(pop=pop2,S=15,id="pop3",chr_length=chr_length)
 qtn_effect = random_qtn_assign(qtn = 5,gen2phy=gen2phy,biased_selection=biased_selection,parental_genotypes=parental_genotypes,min_qtn_freq=min_qtn_freq,dominant=min_qtn_freq,effect_distribution=effect_distribution)
 h2 = 0.6

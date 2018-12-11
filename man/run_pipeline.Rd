@@ -3,8 +3,7 @@
 \alias{run_pipeline}
 \title{run_pipeline}
 \description{
-The function runs a full pipeline in crossword synatex
-}
+The function runs a full pipeline in crossword syntax supplied in an input file.}
 \usage{
 run_pipeline(script_file)
 }

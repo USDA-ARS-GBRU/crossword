@@ -3,24 +3,23 @@
 \alias{random_qtn_assign}
 \title{random_qtn_assign}
 \description{
-The function select random QTNs with a certain criteria
-}
+The function select random QTNs with certain criteria supplied as inputs.}
 \usage{
 random_qtn_assign(qtn,gen2phy,biased_selection,parental_genotypes,min_qtn_freq,dominant,effect_distribution,highest_P,lowest_P,high_to_low_percentage)
 }
 \arguments{
 \item{qtn}{Required: Number of QTNs to be selected}
 \item{gen2phy}{optinal: gen2phy object to calculate biased_selection}
-\item{biased_selection}{optional: if TRUE, the randomly selected QTNs are biased to gene denesity regions}
+\item{biased_selection}{optional: if TRUE, the randomly selected QTNs are biased to gene density regions}
 \item{parental_genotypes}{Required: parental_genotypes object}
-\item{min_qtn_freq}{Optional: minimum QTN frequency, dafault is 0}
+\item{min_qtn_freq}{Optional: minimum QTN frequency, default is 0}
 \item{dominant}{Optional: a logical object for dominance, default is FALSE}
 \item{h2}{Optional: effect_distribution is "equal", "gamma", or "normal", default is "equal"}
 \item{highest_P}{Optional: the highest parent in case of using pick_parent method}
 \item{lowest_P}{Optional: the lowest parent in case of using pick_parent method}
-\item{high_to_low_percentage}{Optional: the perecentage of opposite effect of lower parent, default 0}}
+\item{high_to_low_percentage}{Optional: the percentage of opposite effect of lower parent, default 0}}
 \value{
-ranomly assigned QTNs and effects
+randomly assigned QTNs and effects
 }
 \examples{
 gff = "crossword_processing/peanut.gff"

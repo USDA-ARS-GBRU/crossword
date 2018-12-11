@@ -3,8 +3,8 @@
 \alias{combine_populations}
 \title{combine_populations}
 \description{
-The function combines multiple haplotypes' objects into a single haplotype object
-}
+The function combines multiple haplotypes' objects into a single haplotype object \cr
+It accept list of populations and merge them in single population.}
 \usage{
 combine_populations(pops)
 }

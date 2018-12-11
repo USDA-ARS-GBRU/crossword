@@ -3,8 +3,9 @@
 \alias{advance}
 \title{advance}
 \description{
-The function create advanced generations from a cross population
-}
+The function create advanced generations from a cross population. \cr
+It accept a cross object prcess it based on the customized conditions and experimental design to a certain number of generations supplied by the user, \cr
+and exports haplotype object.}
 \usage{
 advance(pop,F,outcross,level,clevel,id,CHR)
 }

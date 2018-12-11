@@ -3,8 +3,7 @@
 \alias{get_parental_genotypes}
 \title{get_parental_genotypes}
 \description{
-The function collect the SNPs and their genotypes/gen2phy information for parental genotyes
-}
+The function collects the SNPs and their genotypes/gen2phy information for parental genotypes.}
 \usage{
 get_parental_genotypes(input,gen2phy,keep_homo)
 }

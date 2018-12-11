@@ -1,10 +1,10 @@
 % File library/man/select.Rd
 \name{select}
 \alias{select}
-\title{selecte}
+\title{select}
 \description{
-The function selects individuals from a population.
-}
+The function selects individuals from a population based on the phenotypic values, \cr
+the selection may be in the direction of the highest, lowest or random values.}
 \usage{
 select(pop,N,level,gen,method,pheno,percentage,im_type)
 }

@@ -3,8 +3,7 @@
 \alias{get_values}
 \title{get_values}
 \description{
-The function calculates the phenotypic value
-}
+The function calculates the phenotypic values based on th supplied input genotype object and QTN effects.}
 \usage{
 get_values(geno,qtn_effect,dominant)
 }

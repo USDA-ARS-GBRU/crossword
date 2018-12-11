@@ -3,8 +3,7 @@
 \alias{get_vr}
 \title{get_vr}
 \description{
-The function calculate Vr
-}
+The function calculate Vr for a certain supplied heritability.}
 \usage{
 get_vr(qtn_effect,h2,parental_genotypes,dominant,heritability_mode)
 }

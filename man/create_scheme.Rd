@@ -7,7 +7,7 @@ The function creates scheme from the provided parental information: \cr
 1. single parent1 X single parent2 \cr
 2. single parent1 X list of parents2 \cr
 3. list of parents1 X single parent2 \cr
-All combinations of list of parents1 X list of parents2 is not alowed
+All combinations of list of parents1 X list of parents2 is not allowed
 }
 \usage{
 create_scheme(P1,P2,N,id)

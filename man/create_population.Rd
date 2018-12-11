@@ -6,8 +6,8 @@
 creating a population from parents
 }
 \usage{
-create_population(P,id,chr_length,parental_genotypes)
-}
+creating a population from parents, \cr
+as a list of parents are applied and a haplotype object is created for these parents using parental_genotypes input object.}
 \arguments{
 \item{P}{Required: a list of parents to be used}
 \item{chr_length}{Required: a two-column file of chromosomes' IDs and length in CM}

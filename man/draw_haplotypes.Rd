@@ -3,8 +3,7 @@
 \alias{draw_haplotypes}
 \title{draw_haplotypes}
 \description{
-The function plots haplotypes
-}
+The function creates plots of all individuals in the input haplotype, which show the parental contributions for every chromosome.}
 \usage{
 draw_haplotypes(haplotypes,output_folder,parental_genotypes,heterozygous,by_chromosomes,im_type)
 }
@@ -13,7 +12,7 @@ draw_haplotypes(haplotypes,output_folder,parental_genotypes,heterozygous,by_chro
 \item{output_folder}{Required: an output folder to be created and store the images.}
 \item{parental_genotypes}{Required: the parental genotyping object}
 \item{heterozygous}{Optional: a logical argument to provide if the crop is heterozygous, default: TRUE}
-\item{by_chromosomes}{Optional: a logical argument to provide if the haplotypes will be sorted in the graphs by chromsomes, default: TRUE}
+\item{by_chromosomes}{Optional: a logical argument to provide if the haplotypes will be sorted in the graphs by chromosomes, default: TRUE}
 \item{im_type}{Optional: the type of images}}
 
 \examples{

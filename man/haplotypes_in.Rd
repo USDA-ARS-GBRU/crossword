@@ -3,8 +3,7 @@
 \alias{haplotypes_in}
 \title{haplotypes_in}
 \description{
-The function restores a saved genotypes
-}
+The function restores from an input file.}
 \usage{
 haplotypes_in(input)
 }

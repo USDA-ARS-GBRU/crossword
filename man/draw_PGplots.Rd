@@ -3,8 +3,7 @@
 \alias{draw_PGplots}
 \title{draw_PGplots}
 \description{
-draw_PGplots function draws the qplots of physical to genomical locations for all chrosomes in jpeg format into a folder created by the function
-}
+draw_PGplots function draws qplots of physical coordinated to genomic locations for all chromosomes in the supplied image format into a folder created by the function}
 \usage{
 draw_PGplots(input,output_folder,im_type)
 }

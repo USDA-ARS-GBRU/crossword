@@ -3,8 +3,8 @@
 \alias{create_haplotypes_from_scheme}
 \title{create_haplotypes_from_scheme}
 \description{
-The function simulate haplotypes from a scheme
-}
+The function simulates haplotypes from a scheme \cr
+It produces a haplotype object following the individuals and generations of a scheme file.}
 \usage{
 create_haplotypes_from_scheme(scheme,chr_length,pop)
 }
