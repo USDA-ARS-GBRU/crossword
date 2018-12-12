@@ -11,7 +11,7 @@ draw_population <- function(pop,parental_genotypes,file,im_type)
     founders = colnames(parental_genotypes[[1]])
     founders = data.frame(names=founders, id=seq(1,2*(length(founders)),by=2))
 	rownames(founders) = founders[,1]
-	col1 = colorRampPalette(c("green", "red"))(length(founders[,1])*2)
+	col1 = colorRampPalette(c("orange", "blue"))(length(founders[,1])*2)
 	col_founders=cbind(seq(1,length(col1)),col1)
 	count = 1
 	A3 = data.frame()
@@ -27,7 +27,7 @@ draw_population <- function(pop,parental_genotypes,file,im_type)
 	founders = colnames(parental_genotypes[[1]])
 	founders = data.frame(names=founders, id=seq(1,2*(length(founders)),by=2))
 	rownames(founders) = founders[,1]
-	col1 = colorRampPalette(c("green", "red"))(length(founders[,1]))
+	col1 = colorRampPalette(c("orange", "blue"))(length(founders[,1]))
 	Col1 = cbind(id=rownames(founders),col=col1)
 	haplotypes=pop
 	hap_ids = names(haplotypes$haplotype)

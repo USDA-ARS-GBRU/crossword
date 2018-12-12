@@ -41,7 +41,7 @@ draw_haplotypes <- function(haplotypes,output_folder,parental_genotypes,heterozy
 	founders = colnames(parental_genotypes[[1]])
 	founders = data.frame(names=founders, id=seq(1,2*(length(founders)),by=2))
 	rownames(founders) = founders[,1]
-	col1 = colorRampPalette(c("green", "red"))((length(founders[,1]))*2)
+	col1 = colorRampPalette(c("orange", "blue"))((length(founders[,1]))*2)
 	if(het == 0){for (i in seq(2,length(col1),by = 2)){col1[i] = col1[i-1]}}
 	col_founders=cbind(seq(1,length(col1)),col1)
 	count = 1
