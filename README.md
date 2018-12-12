@@ -65,6 +65,7 @@ The publication has been submitted and will be linked here when accepted.
 
 | Exteranal Resource  | Reference | Licence |
 | ------------- | ------------- | ------------- | 
-| simcross | http://kbroman.org/simcross/ | Open_Source | 
+| simcross | http://kbroman.org/simcross/
+https://kbroman.org/simcross/assets/vignettes/simcross.html | Open_Source | 
 | rrBLUP |Endelman, J. B. 2011. Ridge Regression and Other Kernels for Genomic Selection with R Package rrBLUP. Plant Genome 4:250-255 | Open_Source | 
 | ART | Weichun Huang, Leping Li, Jason R Myers, and Gabor T Marth. ART: a next-generation sequencing read simulator, Bioinformatics (2012) 28 (4): 593-594 | Open_Source | 
