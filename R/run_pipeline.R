@@ -89,7 +89,7 @@ run_pipeline <- function(script_file)
                 }else
                 {
                     write("parental_genotypes = get_parental_genotypes(input,gen2phy,homo)",file=running_script,append=TRUE)                 
-                    write("gen2phy = physical2genomic(gff,chr_stat,,window_size)",file=running_script,append=TRUE)
+                    write("gen2phy = physical2genomic(gff,chr_stat,chr_length,window_size)",file=running_script,append=TRUE)
                     parental_genotypes = get_parental_genotypes(input,gen2phy,homo)
                     gen2phy = physical2genomic(gff,chr_stat,chr_length,window_size)
                 }
