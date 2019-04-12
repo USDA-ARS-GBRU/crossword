@@ -62,7 +62,7 @@ add_header_button <- function(e)
     filename=""
     dialog_b3 = gbutton(text='Browse',container=g2b,handler=function(...){
     filename <- tclvalue(tkgetOpenFile())
-    if(filename!=""){svalue(t4) = paste0("\"",filename,"\"")}   
+    if(filename!=""){svalue(t4) = paste0("\"",gsub(".*/","",filename),"\"")}   
     })
     
     l5 = gedit(width = 25,text = "chr_stat",container=g2a)
@@ -72,7 +72,7 @@ add_header_button <- function(e)
     filename=""
     dialog_b4 = gbutton(text='Browse',container=g2b,handler=function(...){
     filename <- tclvalue(tkgetOpenFile())
-    if(filename!=""){svalue(t5) = paste0("\"",filename,"\"")}   
+    if(filename!=""){svalue(t5) = paste0("\"",gsub(".*/","",filename),"\"")}   
     })
     
     l6 = gedit(width = 25,text = "chr_length",container=g2a)
@@ -82,7 +82,7 @@ add_header_button <- function(e)
     filename=""
     dialog_b5 = gbutton(text='Browse',container=g2b,handler=function(...){
     filename <- tclvalue(tkgetOpenFile())
-    if(filename!=""){svalue(t6) = paste0("\"",filename,"\"")}   
+    if(filename!=""){svalue(t6) = paste0("\"",gsub(".*/","",filename),"\"")}   
     })
     
     l7 = gedit(width = 25,text = "window_size",container=g2a)
@@ -100,7 +100,7 @@ add_header_button <- function(e)
     filename=""
     dialog_b6 = gbutton(text='Browse',container=g3b,handler=function(...){
     filename <- tclvalue(tkgetOpenFile())
-    if(filename!=""){svalue(t11) = paste0("\"",filename,"\"")}   
+    if(filename!=""){svalue(t11) = paste0("\"",gsub(".*/","",filename),"\"")}   
     })
     
     l8 = gedit(width = 25,text = "outcross",container=g3a)
@@ -112,7 +112,7 @@ add_header_button <- function(e)
     filename=""
     dialog_b7 = gbutton(text='Browse',container=g3b,handler=function(...){
     filename <- tclvalue(tkgetOpenFile())
-    if(filename!=""){svalue(t11b) = paste0("\"",filename,"\"")}   
+    if(filename!=""){svalue(t11b) = paste0("\"",gsub(".*/","",filename),"\"")}   
     })
     
     l12 = gedit(width = 25,text = "homo",container=g3a)
@@ -152,7 +152,7 @@ add_header_button <- function(e)
     filename=""
     dialog_b8 = gbutton(text='Browse',container=g4b,handler=function(...){
     filename <- tclvalue(tkgetOpenFile())
-    if(filename!=""){svalue(t19) = paste0("\"",filename,"\"")}   
+    if(filename!=""){svalue(t19) = paste0("\"",gsub(".*/","",filename),"\"")}   
     })
     
     l17 = gedit(width = 25,text = "biased_selection",container=g4a)
