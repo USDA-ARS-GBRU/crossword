@@ -1,7 +1,7 @@
 # crossword
 A data-driven simulation language for the design of genetic-mapping experiments and breeding strategies
 
-Crossword utilizes the widely available results of next-generation sequencing data to create more realistic simulations and to simplify user input. The software was written in R, but simulations are written out in a simplified language that is converted to R prior to running. A graphical user interface is available to facilitate your simulation description.
+Crossword utilizes the widely available results of next-generation sequencing data to create more realistic simulations and to simplify user input. The software was written in R, but simulations are defined in a simplified language that is converted to R prior to running. A graphical user interface is available to facilitate your simulation description.
 
 ## Installation:
 0. Open a command prompt and run R by typing "R[enter]".  Unless otherwise indicated, the following commands should be typed at the R prompt. "devtools" is required to install any package from github. If you do not have it, it can be installed by the following command:
