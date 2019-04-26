@@ -60,7 +60,9 @@ Auxiliary functions can be run through Rscript by passing the function name then
             Rscript ./crossword.R vcf2hapmap peanut.vcf peanut.hapmap
 
 ## Citation: 
-The publication has been submitted and will be linked here when accepted.
+Korani W, Vaughn JN. Crossword: A data-driven simulation language for the design of genetic-mapping experiments and breeding strategies. Scientific Reports. 2019;9: 4386.
+
+https://www.nature.com/articles/s41598-018-38348-y
 
 
 | External Resource  | Reference | Licence |
