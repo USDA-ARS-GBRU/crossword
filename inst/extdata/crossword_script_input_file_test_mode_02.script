@@ -1,0 +1,85 @@
+########################input/output###########################
+test_mode
+output_folder="crossword_output_02_test_mode"                         # output folder to create all figures and files relative the working directory
+iterations = 2                                              # number of iterations
+input_folder=system.file("extdata/peanut_input",package="crossword")     # input folder containing all files that will be used as an input, such as ‘chr_siz.txt’ below.  The ‘system.file()’ function should be replaced when not using the example test data.  If input data is spread across directories, a common directory can be specified and paths relative to that directory can be defined on a per file basis.  
+im_type="svg"                                               # the type of output images; the following can be used: svg (default), pdf, jpeg, png, tiff, bmp.  PNG is generally the best choice for Windows
+by_chromosomes = TRUE                                       # for graphing haplotypes, if TRUE, the graphs will be sorted by chromosomes, if FALSE, they will be sorted by individual
+heterozygous = FALSE                                        # for graphing haplotypes, if TRUE, the two sister chromosomes will have different colors
+########################chromosome information##################
+gff = "peanut.gff"                                          # a gene annotation GFF file generally acquired from phytozome.org or a comparable data repository
+chr_stat = "chr_siz.txt"                                    # a file containing the chromosomes lengths in bp.  If not specified (‘NA’), this file is derived from GFF file using last gene on each chromosome.  If no GFF file, each chromosome gets a length of 100 Mb.
+chr_length = "chr_len.txt"                                  # a file containing the chromosomes length in cm.  If not specified (‘NA’), all chromosomes get length of 100 cM.
+window_size = 100000                                        # Sliding window sizes in bp for defining variable recombination frequencies 
+######################parental genotypes#########################
+input = "parental_genotypes.hapmap"                         # the file containing parental genotypes.  It may be VCF or HAPMAP formats (ex: "parental_genotypes.hapmap" ).  Names of accessions in this file MUST match those used as founders or parents in the breeding program below
+outcross=0.1                                                # the frequency of outcrossing (0 specifies full selfing, 1 species obliate outcrossing)
+input_loci = "parental_genotypes.loc"                       # the file containing the loci information in CM, if provided (ex: "parental_genotypes.loc"), it will be used instead of gff
+homo = TRUE                                                 # If TRUE, only homozygous loci will be kept for parental genotypes.  Since heterozygous calls in a highly selfing crop are generally miscalls, this value can be set to ignore those.  If using known heterozygous parents, this value should be set to FALSE.
+#########################phenotyping############################
+phenotyping_method = "QTN_random"                           # it should be one of QTN_random, high_low_parents or QTN_supplied
+qtn = 20                                                    # number of QTN to be tested for pheno_rand or pheno_supplied_implicit methods
+h2 = 0.6                                                    # heritability level
+heritability_mode = "average"                               # heritability mode that will be used, absolute or relative.
+effect_distribution = "equal"                               # effect distribution for random method, equall, or gamma. Default is equal.
+min_qtn_freq = 0                                            # minimum QTN frequency for random selected QTNs, based on perental genotypes.
+highest_P=NA                                                # highest parent in case of random method and pick_parent heritability mode.
+lowest_P=NA                                                 # lowest parent in case of random method and pick_parent heritability mode.
+high_to_low_percentage = 0                                  # the perecentage of opposite effect of lower parent
+input_effects = "qtn_effects.efc"                           # only used with supplied method
+biased_selection = TRUE                                     # If TRUE, selected QTNs will be biased for the regions with high gene density for pheno_rand or pheno_supplied_implicit methods
+dominant = FALSE                                            # specifies that all loci are dominant.  If set to ‘FALSE’, additive genetic variance is assumed.  Currently, there is no way to define partial dominance either at a single locus or a subset of loci.
+##########
+I = "start"
+#################breeding program start here###################
+####these functions are allowed: 
+    # =cross(P1,P2,N)
+    # =advance(pop,F,level,clevel)
+    # =create_families(pop,S)
+    # =select(pop,N,level,method,phenotype)
+    # =reduce(pop,N,method,phenotype)
+    # =combine_populations(list(pop1,pop2))
+    # haplotypes_out(pop,output)
+    # =haplotypes_in(input)
+    # =dh(pop)
+    # draw_haplotypes(haplotypes)
+    # draw_population(pop)
+    # =get_phenotype(pop,tgv_only)
+    # =get_genotype(pop)
+    # =create_marker_set(genotypes,N,MAF)
+    # =get_marker_intersection(genotypes,geno)
+    # genotypes_out(genotypes,output,level,pop,parental_genotypes,A_parent, B_parent)
+    # phenotype_out(pheno,file,level,pop)
+    # =genomic_prediction(train_geno,train_pheno,predict_geno,method,level,train_pop)
+    # =mas(pop,marker,level)
+    # =create_population(P)
+    # =select_individuals(pop,haplotypes_ids)
+####see ‘crosswordCheatSheet.pdf’ and ‘crosswordManual’ for explanations of each and general language useage 
+##############################################################
+pop1 = cross(P1="grg",P2=list("tr","tg"),N=10)
+pop2 = advance(pop = pop1,F=5,level="individual",clevel="individual")
+pop3 = create_families(pop=pop2,S=5)
+pop6 = select(pop = pop3,N = 3, level = "individual",method="top")
+pop9 = combine_populations(list(pop1,pop2))
+haplotypes_out(pop = pop2,output = "haplo1_out")
+pop5 = haplotypes_in(input = "haplo1_out")
+pop10 = dh(pop=pop1)
+draw_haplotypes(haplotypes=pop2)
+draw_population(pop = pop3)
+pheno2 = get_phenotype(pop = pop2,tgv_only=FALSE)
+pheno3A = get_phenotype(pop = pop3,tgv_only=FALSE)
+geno2 = get_genotypes(pop = pop2)
+ms2 = create_marker_set(genotypes = geno2,N=200,MAF=0.1)
+pop4 = create_families(pop=pop2,S=20)
+geno3 = get_genotypes(pop = pop4)
+ms3 = get_genotypes(pop = pop4,pre_selected_markers = ms2)
+ms4 = get_genotypes(pop = pop4,pre_selected_markers = ms2)
+genotypes_out(genotypes=ms3,output="pop4_marker_set",level=NA,pop=NA,A_parent=NA, B_parent=NA)
+pheno3 = genomic_prediction(train_geno=ms2,train_pheno=pheno2,predict_geno_pop=ms3,method="rrBLUP",level="cross",train_pop = pop2)
+gselection1 = select(pop = pop4,N = 3, level = "individual",method="top",phenotype=pheno3)
+gselection2 = select(pop = pop4,N = 1,level = "family", method="top",phenotype=pheno3)
+phenotype_out(pheno = pheno3A, file = "pheno3_predicted",level="family",pop=pop3)
+pop3_b = mas(pop = pop3,marker = [("Aradu.A04_106615237","C",0.5),("Aradu.A03_7819678","T",0.5)], level = "individual")
+pop10 = create_population(P=list("tg","tr","grg"))
+pop11 = pick_individuals(pop=pop10,cross=NA,family=2,individual=1)
+#############################################################

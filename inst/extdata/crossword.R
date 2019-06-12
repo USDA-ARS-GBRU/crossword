@@ -6,7 +6,17 @@ if(length(args) == 0)
 {
     library(crossword)
 }
-if(args[1] == "tutorial")
+if(args[1] == "test")
+{
+    for (x in 1:2)
+    {
+        script_file = paste0("crossword_script_input_file_test_mode_0",x,".script")
+        script_file = paste0(system.file("extdata",package="crossword"),"/",script_file)
+        ptm <- proc.time()
+        run_pipeline(script_file)
+        (proc.time() - ptm)[1]/60
+    }
+}else if(args[1] == "tutorial")
 {
     script_file = "crossword_script_input_file.script"
     script_file = paste0(system.file("extdata",package="crossword"),"/",script_file)
