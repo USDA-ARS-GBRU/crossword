@@ -9,6 +9,7 @@ run_pipeline <- function(script_file)
     write("##running R script",file=running_script,append=FALSE)
     write("library(crossword)",file=running_script,append=TRUE)
 	test_g2p = FALSE
+	test_mode = FALSE
     for (i in 1:length(lines))
 	{
 		line=lines[i]
@@ -17,6 +18,10 @@ run_pipeline <- function(script_file)
 		line = gsub('\t*','',line)
 		if(line != '')
 		{
+		    if(grepl("test_mode",line))
+		    {
+		        test_mode = TRUE
+		    }
 		    if(grepl("gff=",line))
 		    {
 		        line = gsub("\"","",gsub("gff=","",line))
@@ -99,7 +104,7 @@ run_pipeline <- function(script_file)
     }
     for (l in 1:iterations)
     {
-        
+        if(test_mode == TRUE){set.seed(l)}   
         write("###############################################",file=running_script,append=TRUE)
         write(paste0("###iteration# ",l,"################################"),file=running_script,append=TRUE)
         write(paste0("l=",l),file=running_script,append=TRUE)
