@@ -1,6 +1,6 @@
 Package: crossword
 Title: Breeding program similation sotware
-Version: 0.99.0
+Version: 1.2.0
 Author: person("Walid", "Korani", email = "korani@uga.edu",
     role = c("aut", "cre"))
 Maintainer: Walid Korani <korani@uga.edu>
