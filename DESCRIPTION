@@ -10,8 +10,8 @@ Depends:
 License: MIT + file LICENSE
 LazyData: true
 Imports: shape,
-    ggplot2,
-    simcross,
+	ggplot2,
+	simcross,
 	gridExtra,
 	Rcpp,
 	mapplots,
@@ -19,7 +19,7 @@ Imports: shape,
 	Biostrings,
 	gWidgets,
 	gWidgetstcltk,
-    knitr
+	knitr
 URL: https://github.com/w-korani/keggseq
 biocViews: breeding, simulation
 VignetteBuilder: knitr
