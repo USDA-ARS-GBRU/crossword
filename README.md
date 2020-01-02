@@ -27,6 +27,8 @@ Crossword utilizes the widely available results of next-generation sequencing da
 
 The full manual is available at Wiki page in the tab above.
 
+test
+
 ### For running using GUI:
             
             library('crossword')
