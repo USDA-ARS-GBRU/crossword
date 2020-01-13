@@ -121,6 +121,7 @@ select <- function(pop,N,level,method,pheno,percentage,im_type,file)
 	    if(cols == "value"){cols2 = "phenotypic"}else
 	    {cols2 = cols}
 	    write.table(df2,paste0(file,"_",level,"_",cols2,"_values.txt"),quote=FALSE)
+	df3$average <- sort(df3$average)
         write.table(df3,paste0(file,"_",level,"_",cols2,"_averages.txt"),quote=FALSE)
         phenotypic_values = as.numeric(as.character(df2$value))
 	}
