@@ -27,7 +27,7 @@ Crossword utilizes the widely available results of next-generation sequencing da
 
 The full manual is available at Wiki page in the tab above.
 
-# The original xwindow GUI implementation of crossword is being moved to a shiny interface and is currently unusable
+### The original xwindow GUI implementation of crossword is being moved to a shiny interface and is currently unusable
 ### ~~For running using GUI:~~  
 ~~The x-window environment should open and commands can be entered accordingly.~~
 
