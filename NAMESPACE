@@ -8,6 +8,4 @@ import("simcross")
 import("mapplots")
 import("rrBLUP")
 import("Biostrings")
-import("gWidgets")
-import("gWidgetstcltk")
-export(crossword_gui)
+
