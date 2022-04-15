@@ -27,13 +27,9 @@ Crossword utilizes the widely available results of next-generation sequencing da
 
 The full manual is available at Wiki page in the tab above.
 
-
-### For running using GUI:
-            
-            library('crossword')
-            crossword_gui()
-           
-The x-window environment should open and commands can be entered accordingly.
+#original xwindow implementation of crossword is being moved to a shiny interface and is currently unusable
+~~### For running using GUI:~~  
+~~The x-window environment should open and commands can be entered accordingly.~~
 
 ### For running directly from crossword script:
   
