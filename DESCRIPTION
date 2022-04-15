@@ -17,8 +17,6 @@ Imports: shape,
 	mapplots,
 	rrBLUP,
 	Biostrings,
-	gWidgets,
-	gWidgetstcltk,
 	knitr
 URL: https://github.com/w-korani/keggseq
 biocViews: breeding, simulation
