@@ -43,7 +43,7 @@ phenotype <- function(pop,qtn_effect,tgv_only,vr,parental_genotypes)
     calculated_env = rnorm(ncol(po2),mean=0,sd=sqrt(vr))
     mod = lm(calculated_env~Value)
     cal_her = summary(model)$r.squared
-    print(paste0("the calculated heritability as R-squared is ",round(cal_her,3)))
+    print(paste0("the calculated heritability as R-squared is:",round(cal_her,3)))
     if(tgv_only == TRUE)
     {
         pheno = data.frame(cbind(colnames(po2),Value))
