@@ -91,12 +91,12 @@ run_pipeline <- function(script_file)
                     suppressWarnings(dput(gen2phy,file=paste0(output_folder,"/parental_genotypes_gen2phy_info"),control = "all"))
                     print("parental_genotypes were obtained")
 
-                }else
+                }else #if a recombination map is supplied (ex. "map.loc"), then expensive gff compute can be skipped.
                 {
                     write("parental_genotypes = get_parental_genotypes(input,gen2phy,homo)",file=running_script,append=TRUE)                 
-                    write("gen2phy = physical2genomic(gff,chr_stat,chr_length,window_size)",file=running_script,append=TRUE)
+                    #write("gen2phy = physical2genomic(gff,chr_stat,chr_length,window_size)",file=running_script,append=TRUE)
                     parental_genotypes = get_parental_genotypes(input,gen2phy,homo)
-                    gen2phy = physical2genomic(gff,chr_stat,chr_length,window_size)
+                    #gen2phy = physical2genomic(gff,chr_stat,chr_length,window_size)
                 }
 		        break
 		    }
