@@ -41,7 +41,7 @@ phenotype <- function(pop,qtn_effect,tgv_only,vr,parental_genotypes)
     #cal_var = var(Value,na.rm = TRUE)
 	#cal_her = cal_var / (cal_var+vr)
     calculated_env = rnorm(ncol(po2),mean=0,sd=sqrt(vr))
-    model = lm(calculated_env~Value)
+    model = lm((calculated_env+Value)~Value)
     cal_her = summary(model)$r.squared
     print(paste0("the calculated heritability as R-squared is:",round(cal_her,3)))
     if(tgv_only == TRUE)
