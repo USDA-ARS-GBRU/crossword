@@ -1,4 +1,4 @@
-## a function to estimate genomic loci from the physical loci based on sliding winows and gene frequencey
+## a function to estimate genomic loci from the physical loci based on sliding windows and gene frequency
 physical2genomic <- function(input,chr_stat,chr_length,window_size)
 {								
 	b1 = read.table(input,sep = "\t",quote = "")				#reading gff file
@@ -6,15 +6,14 @@ physical2genomic <- function(input,chr_stat,chr_length,window_size)
 	b3 = b2[order(b2$V5),]										#sorting gene ends
 	b4 = b3[order(b3$V1),]										#sorting chromsomes
 	rownames(b4) = gsub(';.*','',gsub('ID=','',b4$V9))			#extracting genes' IDs and naming the records
-	chr_ids = levels(b4$V1)										#extracting sorted chromomes IDs
+chr_ids = unique(b4$V1)										#extracting sorted chromomes IDs
 	b5 = b4[,c(1,4,5)]											#extracting dataframe of genes' IDs (record names),chromosome, gene start, gene end
 	colnames(b5) = c('chr','start','end')						#naming the data frame columns
 	test_cs = FALSE
 	if (missing(chr_stat))										#checking if the chromosome size file is exist, otherwise the chromosome size will calculated based on the end locus (bp) of the last gene
 	{
 		test_cs = TRUE
-	}
-	else
+	}else
 	{
 		chr_sizes = read.table(chr_stat)						#reading chromosome sizes, the file should be tab delimited containing two columns, the first column contains chromosome ID and the second contains chromsome size in bp
 		colnames(chr_sizes) = c('id','size')
@@ -24,8 +23,7 @@ physical2genomic <- function(input,chr_stat,chr_length,window_size)
 	if (missing(chr_length))									
 	{
 		cl = 100
-	}
-	else
+	}else
 	{
 		if(is.numeric(chr_length))
 		{
@@ -36,8 +34,7 @@ physical2genomic <- function(input,chr_stat,chr_length,window_size)
 	if (missing(window_size))
 	{
 		wz=100000
-	}
-	else
+	}else
 	{
 		wz=window_size
 	}
@@ -57,8 +54,7 @@ physical2genomic <- function(input,chr_stat,chr_length,window_size)
 		if(test_cs==TRUE)
 		{
 			chr_size=b6[dim(b6)[1],3]
-		}
-		else
+		}else
 		{
 			if(i %in% chr_sizes$id==FALSE)
 			{
@@ -111,4 +107,3 @@ physical2genomic <- function(input,chr_stat,chr_length,window_size)
 	}
 	return(B9)
 }
-
