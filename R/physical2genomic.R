@@ -6,7 +6,7 @@ physical2genomic <- function(input,chr_stat,chr_length,window_size)
 	b3 = b2[order(b2$V5),]										#sorting gene ends
 	b4 = b3[order(b3$V1),]										#sorting chromsomes
 	rownames(b4) = gsub(';.*','',gsub('ID=','',b4$V9))			#extracting genes' IDs and naming the records
-chr_ids = levels(b4$V1)										#extracting sorted chromomes IDs
+chr_ids = unique(b4$V1)										#extracting sorted chromomes IDs
 	b5 = b4[,c(1,4,5)]											#extracting dataframe of genes' IDs (record names),chromosome, gene start, gene end
 	colnames(b5) = c('chr','start','end')						#naming the data frame columns
 	test_cs = FALSE
