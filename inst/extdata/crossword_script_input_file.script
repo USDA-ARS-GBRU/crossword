@@ -13,7 +13,7 @@ window_size = 100000                                        # Sliding window siz
 ######################parental genotypes#########################
 input = "parental_genotypes.hapmap"                         # the file containing parental genotypes.  It may be VCF or HAPMAP formats (ex: "parental_genotypes.hapmap" ).  Names of accessions in this file MUST match those used as founders or parents in the breeding program below
 outcross=0.1                                                # the frequency of outcrossing (0 specifies full selfing, 1 species obliate outcrossing)
-input_loci = "parental_genotypes.loc"                       # the file containing the loci information in CM, if provided (ex: "parental_genotypes.loc"), it will be used instead of gff
+input_loci = ""                       # the file containing the loci information in CM, if provided (ex: "parental_genotypes.loc"), it will be used instead of gff and run times will be faster
 homo = TRUE                                                 # If TRUE, only homozygous loci will be kept for parental genotypes.  Since heterozygous calls in a highly selfing crop are generally miscalls, this value can be set to ignore those.  If using known heterozygous parents, this value should be set to FALSE.
 #########################phenotyping############################
 phenotyping_method = "QTN_random"                           # it should be one of QTN_random, high_low_parents or QTN_supplied
